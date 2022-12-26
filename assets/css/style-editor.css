@@ -33,7 +33,7 @@
 }
 
 .wp-block-column > .is-style-rounded > figure > img {
-    box-shadow: 0 0 0 10px #49b749;
+  box-shadow: 0 0 0 10px #49b749;
 }
 
 .wp-block-column > blockquote {
@@ -44,53 +44,52 @@
   text-align: left;
 }
 .wp-block-column > blockquote > cite  {
-    color: #73449b;
+  color: #73449b;
 }
 
 .wp-block-column > .wp-block-group > .wp-block-group__inner-container  {
-    padding: 15px;
+  padding: 15px;
 }
-  
+
+article {
+  padding-left: 10%;
+  padding-right:10%;
+}
+
+@media only screen and (min-width: 769px) {
   article {
-      padding-left: 10%;
-      padding-right:10%;
+    padding-left: 0%;
+    padding-right:0%;
   }
-  
-  @media only screen and (min-width: 769px) {
-      article {
-      padding-left: 0%;
-      padding-right:0%;
+  main > article > * {
+    padding-left: 20%;
+    padding-right: 20%;
   }
-    main > article > * {
-      padding-left: 20%;
-      padding-right: 20%;
-  }
-  
+
   #site-main > article > p {
-      padding-left: 10%;
-      padding-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
-  
+
   .alignwide {
-      padding-left: 10%;
-      padding-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
-  
+
   .alignfull {
-      padding-left: 0%;
-      padding-right: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
   }
+}
+
+@media only screen and (min-width: 1340px) {
+  /* For desktop: */
+  #mobile-navigation {
+    display: none;
   }
-  
-  @media only screen and (min-width: 1340px) {
-    /* For desktop: */
-    #mobile-navigation {   
-      display: none;
-    }
-  
-    .mobile-menu {
-      display: none;
-    }
+
+  .mobile-menu {
+    display: none;
   }
-  
-  
+}
+

@@ -6,6 +6,7 @@
             'menu_id' => 'desktop-menu',
             'container' => 'nav',
             'container_id' => 'desktop-navigation',
+            'container_class' => 'wrapper',
             'link_after' => '<span class="menu-icon dashicons dashicons-arrow-down"></span>',
             'depth' => 2
             )

@@ -25,5 +25,4 @@ endwhile; // End of the loop.
 
 get_template_part( 'template-parts/content/sub-pages' );
 echo'</main>';
-
 get_footer(); 

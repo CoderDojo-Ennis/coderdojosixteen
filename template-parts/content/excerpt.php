@@ -1,3 +1,15 @@
+<?php 
+/**
+ * Display the excerpt for blog posts.
+ *
+ * @link https://developer.wordpress.org/reference/functions/add_role/
+ * @link https://developer.wordpress.org/reference/functions/remove_role/
+ *
+ * @package CoderDojo
+ * @subpackage CoderDojo_Theme_One
+ * @since 1.0.0
+ */
+?>
 <div class="post">
     <?php if ( has_post_thumbnail() ) :?>
         <div class="post-image" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
