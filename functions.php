@@ -5,14 +5,14 @@
  */
 function coderdojo_register_styles() {
 
-    $theme_version = wp_get_theme()->get( 'Version' );
+  $theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'coderdojo-style', get_stylesheet_uri(), array(), $theme_version );
-    //wp_style_add_data( 'coderdojo-style', 'rtl', 'replace' );
-    
-    // Add print CSS.
-    //wp_enqueue_style( 'coderdojo-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
-    
+  wp_enqueue_style( 'coderdojo-style', get_stylesheet_uri(), array(), $theme_version );
+  //wp_style_add_data( 'coderdojo-style', 'rtl', 'replace' );
+
+  // Add print CSS.
+  //wp_enqueue_style( 'coderdojo-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'coderdojo_register_styles' );
@@ -22,10 +22,10 @@ add_action( 'wp_enqueue_scripts', 'coderdojo_register_styles' );
  */
 function coderdojo_register_scripts() {
 
-    $theme_version = wp_get_theme()->get( 'Version' );
+  $theme_version = wp_get_theme()->get( 'Version' );
 
-    wp_enqueue_script( 'coderdojo-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
-	wp_script_add_data( 'coderdojo-js', 'async', true );
+  wp_enqueue_script( 'coderdojo-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+  wp_script_add_data( 'coderdojo-js', 'async', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'coderdojo_register_scripts' );
@@ -48,8 +48,8 @@ add_theme_support( 'title-tag' );
  */
 function coderdojo_post_support() {
 
-	// Add default posts and comments RSS feed links to head.
-    add_post_type_support( 'page', 'excerpt' );
+  // Add default posts and comments RSS feed links to head.
+  add_post_type_support( 'page', 'excerpt' );
 
 }
 
@@ -60,35 +60,17 @@ add_action( 'after_setup_theme', 'coderdojo_post_support' );
  */
 function coderdojo_menus() {
 
-	register_nav_menus(
-		array(
-			'header-navigation-links' => __( 'Header Navigation Links' ),
-			'desktop-navigation-menu' => __( 'Desktop Navigation Menu' ),
-			'mobile-navigation-menu' => __( 'Mobile Navigation Menu' ),
-			'footer-navigation-links' => __( 'Footer Navigation Links' ),
-			'footer-social-links' => __( 'Footer Social Links' )
-		  )
-	);
+  register_nav_menus(
+    array(
+      'desktop-navigation-menu' => __( 'Desktop Navigation Menu' ),
+      'mobile-navigation-menu'  => __( 'Mobile Navigation Menu' ),
+      'footer-navigation-links' => __( 'Footer Navigation Links' ),
+      'footer-social-links' => __( 'Footer Social Links' )
+    )
+  );
 }
+
 add_action( 'init', 'coderdojo_menus' );
-
-require get_template_directory() . '/inc/custom-menu-pages.php';
-add_action( 'admin_menu', 'register_custom_menu_pages' );
-
-require get_template_directory() . '/inc/custom-post-types.php';
-add_action( 'init', 'register_custom_post_types' );
-
-require get_template_directory() . '/inc/custom-meta-boxes.php';
-add_action('add_meta_boxes', 'register_custom_meta_boxes');
-
-require get_template_directory() . '/inc/custom-shortcodes.php';
-add_action( 'init', 'register_custom_shortcodes' );
-
-
-
-
-
-
 
 /**
  * Register widget area.
@@ -101,56 +83,28 @@ add_action( 'init', 'register_custom_shortcodes' );
  */
 function coderdojo_widgets_init() {
 
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Blog Archive Sidebar', 'coderdojo' ),
-			'id'            => 'archive-sidebar',
-			'description'   => esc_html__( 'Add the search and categories widgets here to appear in your blog archive.', 'coderdojo' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+  register_sidebar(
+      array(
+          'name'          => esc_html__( 'Blog Archive Sidebar', 'coderdojo' ),
+          'id'            => 'archive-sidebar',
+          'description'   => esc_html__( 'Add the search and categories widgets here to appear in your blog archive.', 'coderdojo' ),
+          'before_widget' => '<section id="%1$s" class="widget %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="widget-title">',
+          'after_title'   => '</h2>',
+      )
+  );
 
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Address', 'coderdojo' ),
-			'id'            => 'footer-sidebar',
-			'description'   => esc_html__( 'Add the text widgit here to show your address in the footer', 'coderdojo' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+  register_sidebar(
+      array(
+          'name'          => esc_html__( 'Footer Address', 'coderdojo' ),
+          'id'            => 'footer-sidebar',
+          'description'   => esc_html__( 'Add the text widgit here to show your address in the footer', 'coderdojo' ),
+          'before_widget' => '<section id="%1$s" class="widget %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="widget-title">',
+          'after_title'   => '</h2>',
+      )
+  );
 }
 add_action( 'widgets_init', 'coderdojo_widgets_init' );
-
-
-
-              
-function my_user_contactmethods($user_contactmethods){
-
-	unset($user_contactmethods['url']);
-
-	$user_contactmethods['title'] = 'Title';
-	$user_contactmethods['linkedin'] = 'LinkedIn Profile';
-  	$user_contactmethods['twitter'] = 'Twitter Profile';
- 
-  	return $user_contactmethods;
-}
-add_filter('user_contactmethods', 'my_user_contactmethods');
-
-
-
-
-
-
-
-
-
-
-
-
-?>

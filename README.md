@@ -1,2 +1,4 @@
-# coderdojo-classic
-The original CoderDojo WordPress theme with zero dependencies on external plugins.
+# coderdojosixteen
+Style your Wordpress site to look exactly like the main CoderDojo website from 2016
+
+![Coderdojo](https://github.com/kinsaledojo/coderdojosixteen/wiki/images/coderdojo.png)

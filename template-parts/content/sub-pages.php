@@ -15,7 +15,7 @@ $sub_pages = get_pages(
       'sort_column' => 'menu_order'
     )
 );
-
+echo 'hello';
 if(count($sub_pages) != 0) :
     echo '<aside id="aside">';
     $i = 1;
