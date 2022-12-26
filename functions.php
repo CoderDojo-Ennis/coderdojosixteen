@@ -8,10 +8,6 @@ function coderdojo_register_styles() {
   $theme_version = wp_get_theme()->get( 'Version' );
 
   wp_enqueue_style( 'coderdojo-style', get_stylesheet_uri(), array(), $theme_version );
-  //wp_style_add_data( 'coderdojo-style', 'rtl', 'replace' );
-
-  // Add print CSS.
-  //wp_enqueue_style( 'coderdojo-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
 }
 
