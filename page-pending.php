@@ -11,7 +11,7 @@
 get_header();
 
 echo '<main id="main" class="wrapper">'; ?>
-	<h1>Events</h1>
+	<h1>Manage Dojo Users - Pending</h1>
 <?php echo'</main>';
 
 get_footer();
