@@ -43,10 +43,14 @@ else:
 endif;
 echo '<table/>';
 the_posts_pagination( array( 'mid_size' => 2 ) );?>
-        <div class="is-layout-flex wp-block-buttons">
-            <div class="wp-block-button aligncenter has-custom-font-size is-style-outline" style="font-size:16px"><a class="wp-block-button__link has-text-color wp-element-button" href="<?php echo home_url('/dashboard/children/add'); ?>" style="border-radius:4px;color:#73449b">Notify all members</a></div>
-            <div class="wp-block-button aligncenter has-custom-font-size is-style-outline" style="font-size:16px"><a class="wp-block-button__link has-text-color wp-element-button" href="<?php echo home_url('/dashboard/children/add'); ?>" style="border-radius:4px;color:#73449b">Create Event</a></div>
+    <div class="is-content-justification-right is-layout-flex wp-container-29 wp-block-buttons">
+        <div class="wp-block-button">
+            <a class="wp-block-button__link wp-element-button" style="background-color:#f0ad4e" href="<?php echo home_url('/dashboard/my-dojos/events'); ?>">Notify all members</a>
         </div>
+        <div class="wp-block-button">
+            <a class="wp-block-button__link wp-element-button" href="<?php echo home_url('/dashboard/children'); ?>">Create Event</a>
+        </div>
+    </div>
         <?php
 echo'</main>';
 

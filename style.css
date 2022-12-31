@@ -207,7 +207,7 @@ img {
   border-bottom: var(--theme-color-six) solid 5px;
 }
 
-.navigation-menu .menu-item-has-children:hover > .sub-menu {
+.menu-item-has-children:hover > .sub-menu {
   display: block;
 }
 
@@ -1122,3 +1122,25 @@ input {
     display: none;
   }
 }
+
+
+.background {
+  background-color: #73449B;
+  height: 157px;
+  min-height: 157px ;
+}
+
+.content {
+  display: flex;
+  margin-top: -130px;
+  align-items: center;
+  gap: 32px;
+  color: #FFFFFF;
+}
+
+.content > img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+

@@ -8,6 +8,7 @@ function coderdojo_register_styles() {
   $theme_version = wp_get_theme()->get( 'Version' );
 
   wp_enqueue_style( 'coderdojo-style', get_stylesheet_uri(), array(), $theme_version );
+	wp_enqueue_style( 'wordpress-style', get_template_directory_uri() . '/assets/css/style-editor.css', array(), $theme_version );
 
 }
 
@@ -37,6 +38,10 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'align-wide' );
 
 add_theme_support( 'title-tag' );
+
+add_theme_support( 'editor-styles' );
+$editor_stylesheet_path = './assets/css/editor-style.css';
+add_editor_style( $editor_stylesheet_path );
 
 /**
  * POST SUPPORT

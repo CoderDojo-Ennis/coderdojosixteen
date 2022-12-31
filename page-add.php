@@ -9,13 +9,24 @@
 */
 
 get_header();?>
-	<h1>My Children</h1>
+    <div class="wrapper" style="background-color: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-bottom: 1px solid #99999F;">
+        <h2>My Children</h2>
+        <p>Please complete all of the required* fields</p>
+    </div>
 <?php
 echo '<main id="main" class="wrapper blog-home">'; ?>
 
-	<aside id="aside-sidebar" style="background-color: #f4f5f6;">
+    <aside id="aside-sidebar" style="border-right: 1px solid #99999F; padding: 0;">
+        <ul style="list-style: none; padding-inline-start: 0; margin: 0">
+            <li>
+                <a href="<?php echo home_url('/dashboard/children/add'); ?>" style="display: flex;  gap: 16px; align-items: center; padding: 16px;">
+                    <img class="avatar" style="height: 90px; width: 90px; border-radius: 50%;" src="<?php echo get_avatar_url( 300, array( 'size' => 90 ) );?>" alt="Avatar">
+                    <p>Add Child</p>
+                </a>
 
-	</aside>
+            </li>
+        </ul>
+    </aside>
 	<article id="article-single" class="spacer">
         <form method="post" id="adduser" action="<?php the_permalink(); ?>">
             <fieldset>

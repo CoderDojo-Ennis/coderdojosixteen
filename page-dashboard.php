@@ -22,28 +22,34 @@ global $current_user, $wp_roles;?>
 <?php echo '<main id="main" class="wrapper blog-home">';?>
     <article id="article-single" class="spacer">
     <section id="sushi-decks">
-	    <?php $latest_posts = get_posts( array(
-		    'numberposts' => 3,
-		    'post_type '  => 'sushi-deck',
-	    ) );
+	    <?php $latest_sushi_decks = get_posts(
+		    array(
+			    'post_type' => 'sushi-deck',
+			    'order' => 'ASC',
+			    'orderby' => 'menu_order',
+			    'numberposts' => 3
+		    )
+	    );
 
-	    if(!empty($latest_posts)) :
+	    if(!empty($latest_sushi_decks)) :
 
 		    echo '<h2 class="section-heading">Before your next event, here are some projects you can try</h2>';
 		    echo '<ul class="wp-block-latest-posts__list is-grid columns-3 wp-block-latest-posts">';
 
-		    foreach ($latest_posts as $post):?>
+		    foreach ($latest_sushi_decks as $sushi_deck):
+                    var_dump($sushi_deck);
+				    setup_postdata( $sushi_deck ); ?>
                 <li>
                     <div class="wp-block-latest-posts__featured-image aligncenter">
-                        <a href="<?php the_permalink() ?>" aria-label="Post title">
-                            <img width="1024" height="349" src="<?php the_post_thumbnail_url() ?>" class="attachment-large size-large wp-post-image" alt="" decoding="async" loading="lazy" style="" >
+                        <a href="<?php the_permalink($sushi_deck->ID) ?>" aria-label="Post title">
+                            <img width="1024" height="349" src="<?php the_post_thumbnail_url($sushi_deck->ID) ?>" class="attachment-large size-large wp-post-image" alt="" decoding="async" loading="lazy" style="" >
                         </a>
                     </div>
-                    <a class="wp-block-latest-posts__post-title" href="<?php the_permalink() ?>"><?php the_title() ?></a>
+                    <a class="wp-block-latest-posts__post-title" href="<?php the_permalink($sushi_deck->ID) ?>"><?php echo $sushi_deck->post_title ?></a>
                 </li>
 
 		    <?php endforeach;
-
+		    wp_reset_postdata();
 		    echo '</ul>';
 	    endif;
 	    ?>
@@ -54,7 +60,7 @@ global $current_user, $wp_roles;?>
     <section id="news">
         <?php $latest_posts = get_posts( array(
                     'numberposts' => 3,
-                    'post_type '  => 'sushi-deck',
+                    'post_type '  => 'post',
                 ) );
 
         if(!empty($latest_posts)) :
@@ -69,7 +75,7 @@ global $current_user, $wp_roles;?>
                                 <img width="1024" height="349" src="http://localhost:8888/wp-content/uploads/2022/12/volunteer-5-1024x349.jpg" class="attachment-large size-large wp-post-image" alt="" decoding="async" loading="lazy" style="" srcset="http://localhost:8888/wp-content/uploads/2022/12/volunteer-5-1024x349.jpg 1024w, http://localhost:8888/wp-content/uploads/2022/12/volunteer-5-300x102.jpg 300w, http://localhost:8888/wp-content/uploads/2022/12/volunteer-5-768x262.jpg 768w, http://localhost:8888/wp-content/uploads/2022/12/volunteer-5.jpg 1383w" sizes="(max-width: 1024px) 100vw, 1024px">
                             </a>
                         </div>
-                        <a class="wp-block-latest-posts__post-title" href="<?php the_permalink() ?>">Post title</a>
+                        <a class="wp-block-latest-posts__post-title" href="<?php the_permalink() ?>"><?php echo $post->post_title ?></a>
                     </li>
 
                 <?php endforeach;
