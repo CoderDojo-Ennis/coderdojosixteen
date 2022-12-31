@@ -32,6 +32,48 @@
   border-radius: 4px;
 }
 
+.is-style-outline > .wp-block-button__link {
+  color: #73449b;
+  background-color: #ffffff;
+  border-color: #73449b;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+
+
+.tickets:before {
+  content: "\f486";
+  -webkit-font-smoothing: antialiased;
+  font: normal 30px/1 'dashicons';
+  display: inline-block;
+  color: #fff;
+  height: 30px;
+  margin-right: 13px;
+  position: relative;
+  top: -2px;
+  vertical-align: middle;
+  width: 30px;
+}
+
+
 .wp-block-column > .is-style-rounded > figure > img {
   box-shadow: 0 0 0 10px #49b749;
 }

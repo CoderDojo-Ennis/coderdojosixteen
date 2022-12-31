@@ -10,22 +10,36 @@
 
 get_header();
 
-
-
-echo '<main id="main" class="wrapper">';?>
+$user_meta = get_user_meta( $current_user->ID );
+echo '<main id="main" class="wrapper">';
+echo '<div class="background alignfull"></div>';
+echo '<article id="article" style="padding-top: 0">';?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <div id="post-<?php the_ID(); ?>">
-        <div class="entry-content entry">
-            <?php the_content(); ?>
-            <?php if ( !is_user_logged_in() ) : ?>
-                    <p class="warning">
-                        <?php _e('You must be logged in to edit your profile.', 'profile'); ?>
-                    </p><!-- .warning -->
-            <?php else : ?>
-				<section style="height: 171px; width=100%; background-color: #73449b;">
-				<?php $user_meta = get_user_meta($current_user->ID); ?>
-				</section>
+	<?php the_content(); ?>
+	<?php if ( !is_user_logged_in() ) : ?>
+        <p class="warning">
+			<?php _e('You must be logged in to edit your profile.', 'profile'); ?>
+        </p><!-- .warning -->
+	<?php else : ?>
+        <div class="content">
+            <img class="avatar" src="<?php echo get_avatar_url( $current_user->ID, array( 'size' => 200 ) );?>" alt="Avatar">
+            <div>
+                <h2><?php echo ($user_meta['first_name'][0] ?? "") ?></h2>
+            </div>
+        </div>
+        <div class="is-content-justification-right is-layout-flex wp-container-29 wp-block-buttons" style="margin-top: -40px">
+            <div class="wp-block-button is-style-outline dropdown menu-item-has-children">
+                <a class="wp-block-button__link has-text-color wp-element-button" style="color:#73449b" href="#">
+                    <span class="dashicons dashicons-admin-generic"></span>
+                    <span class="dashicons dashicons-arrow-down"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li id="menu-item-115" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115"><a href="<?php echo home_url('/dashboard/profile/edit'); ?>"><span class="dashicons dashicons-edit"> Edit Profile</a></li>
+                    <li id="menu-item-114" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114"><a href="#"><span class="dashicons dashicons-visibility"> Profile</a></li>
+                </ul>
+            </div>
+        </div>
 				<form method="post" id="adduser" action="<?php the_permalink(); ?>">
 				<fieldset>
 					<legend>Your Details:</legend>
@@ -99,8 +113,6 @@ echo '<main id="main" class="wrapper">';?>
 				</form>           
  
             <?php endif; ?>
-        </div><!-- .entry-content -->
-    </div><!-- .hentry .post -->
     <?php endwhile;
 else: ?>
     <p class="no-data">
